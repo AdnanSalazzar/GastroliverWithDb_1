@@ -1,0 +1,151 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+body {
+    background-color: rgb(223, 223, 222);
+}
+
+.front_title {
+    letter-spacing: 0px;
+    color: #7e8de0;
+}
+
+.img-banner {
+    background-image: url('../images/banner2.jpg');
+    height: fit-content;
+    width: 100%;
+    margin: 0px;
+    background-attachment: fixed;
+}
+
+.left-title {
+    color: #082c46;
+    font-weight: bold;
+}
+
+.right-title {
+    color: #082c46;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 26px;
+    line-height: 40px;
+    margin-bottom: 25px;
+}
+
+.blue-color-text {
+    color: blue;
+}
+
+.red-color-text {
+    color: red;
+}
+
+form {
+    background: #f4f4f4;
+}
+
+.required {
+    color: red;
+    margin-left: 2px;
+}
+
+.white-bg {
+    background-color: white;
+    color: black;
+}
+
+.form-check-input[type="radio"] {
+    width: 30px;
+    height: 30px;
+}
+
+.form-check-label {
+    font-size: 20px;
+    padding-left: 8px;
+}
+
+.call-section {
+    background: #f7f7f7;
+    margin: 0px;
+    width: 100%;
+}
+
+.text-green a {
+    color: green !important;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+
+
+.image-lastro {
+    background-image: url('../images/last2.jpeg');
+    height: fit-content;
+    width: 100%;
+    margin: 0px;
+}
+
+.footer .bi-facebook {
+    font-size: 20px;
+}
+
+.footer .bi-twitter {
+    font-size: 20px;
+}
+
+::selection {
+    background-color: green;
+    color: white; /* Text color of the highlighted text */
+}
+
+.text-color-ash {
+    color: #6d6d6d;
+    line-height: 27px;
+    margin-bottom: 20px;
+}
+
+.bottom_link a {
+    color: white; /* Initial color */
+    font-size: 20px; /* Initial font size */
+    transition: color 0.3s, font-size 0.3s; /* Transition effect */
+}
+
+    .bottom_link a:hover {
+        color: green; /* Color on hover */
+        font-size: 23px; /* Font size on hover */
+    }
+
+.white-text {
+    color: white;
+}
+
+@media print {
+    .print-button
+
+{
+    display: none;
+}
+
+}

@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+
+@if (Model != null)
+{
+    <h1>Details from Previous View</h1>
+    <p>Patient Name: @Model.PatientName</p>
+    <p>Patient Phone Number: @Model.PatientPhoneNo</p>
+    <!-- Add more properties as needed -->
+    <!-- Example of using properties in HTML -->
+    <form>
+        <input type="text" value="@Model.PatientName" readonly />
+        <input type="text" value="@Model.PatientPhoneNo" readonly />
+        <!-- Add more input fields for other properties -->
+    </form>
+}
+else
+{
+    <p>No data available</p>
+}

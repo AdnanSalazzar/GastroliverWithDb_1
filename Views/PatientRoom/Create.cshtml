@@ -1,0 +1,168 @@
+﻿@model GastroliverWithDb.Models.PatientRoomViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+    <!--doing the form part -->
+    <section>
+      <div class="container pt-5">
+        <div class="d-flex row">
+          <div class="col-md-4">
+            <h2 class="left-title">নিচের নির্দেশাবলী অনুসরণ করুনঃ</h2>
+            <ol class="list-group text-color-ash">
+              <li class="pt-3 text-color-ash">
+                আপনার কোলনোস্কোপি,এন্ডোস্কোপি অথবা অন্য যেকোন মেডিকেল রেকর্ড
+                সাথে থাকলে যদি ডাক্তারকে দেখাতে আগ্রহি হ'ন তাহলে সঙ্গে নিয়ে
+                আসুন।
+              </li>
+              <li class="pt-3 text-color-ash">
+                আপনার ইমেইলে প্রেরিত অনলাইন টিকিট প্রদর্শনপুর্বক বহির্বিভাগে
+                উপস্থিত হয়ে চিকিৎসাসেবা গ্রহন করতে হবে।
+              </li>
+              <li class="pt-3 text-color-ash">
+                প্রতিদিন সকাল ০৮:০০ টা থেকে পরবর্তী কর্মদিবসের জন্যে (বহির্বিভাগ
+                খোলা থাকা সাপেক্ষে) অনলাইন এ্যাপয়েন্টমেন্ট দেওয়া শুরু হবে এবং
+                অনলাইনের জন্য বরাদ্দকৃত সংখ্যা শেষ হওয়া পর্যন্ত এ্যাপয়েন্টমেন্ট
+                নেয়া যাবে।
+              </li>
+            </ol>
+            <p class="pt-5 text-color-ash">
+              উল্লেখ্য যে, অনলাইন এ্যাপয়েন্টমেন্ট পদ্ধতিটি পরীক্ষামূলকভাবে চালু
+              করা হচ্ছে। প্রথম মাসের অভিজ্ঞতা এবং ব্যবহারকারীদের কাছ থেকে
+              প্রাপ্ত পরামর্শের আলোকে এই পদ্ধতিটি নিয়মিত আধুনিকায়ন করা হবে।
+            </p>
+            <p class="text-color-ash">
+              <span class="blue-color-text"
+                >অগ্রাধিকারের তালিকাটি হবে নিম্নরূপঃ</span
+              >
+              <br />
+              ১) বিশেষজ্ঞ টেলি-হেলথলাইন <br />
+              ২)অনলাইন অ্যাপয়েন্টমেন্ট<br />
+              ৩) সরাসরি আগত
+            </p>
+
+            <p class="red-color-text">
+              বিশেষ দ্রষ্টব্যঃ অনলাইন টিকিটধারিগণ সকাল ৮ টা থেকে বেলা ১২ টা
+              পর্যন্ত ৬ নম্বর কাউন্টারে সরকার নির্ধারিত টিকিট ফি ১০ টাকা জমা
+              প্রদান করে বহির্বভাগে ২০৮ নম্বর রুমে পরামর্শ নিতে পারবেন।
+            </p>
+            <p class="pt-2 red-color-text">
+              সাক্ষাৎকারের তারিখ ও সময় শুধুমাত্র মুদ্রিত তারিখের জন্য কার্যকর
+              থাকবে।
+            </p>
+          </div>
+          <div class="col-md-8">
+                <form asp-action="Create" class="row g-3 rounded" autocomplete="on">
+                    <h2 class="right-title text-center">অ্যাপয়েন্টমেন্ট ফর্ম</h2>
+                    <div class="col-12">
+                        <!-- Drop Down -->
+                        <label asp-for="SelectedRoomId" class="form-label">
+                            আপনার অসুস্থতায় কোন বিভাগের চিকিৎসক প্রয়োজন তা নির্বাচন করুনঃ
+                            (বাংলা বর্ণানুক্রমিক অনুযায়ী)<span class="required">
+                                *
+                            </span>
+                        </label>
+                        <select asp-for="SelectedRoomId" asp-items="Model.Rooms" class="form-control">
+                            <option value="">-- Select Room --</option>
+                        </select>
+                        <span asp-validation-for="SelectedRoomId" class="text-danger"></span>
+                    </div>
+                    <!-- End Drop Down -->
+                    <!-- Patient Name -->
+                    <div class="col-12">
+                        <label asp-for="PatientName" class="form-label">
+                            রোগীর নামঃ<span class="required">*</span>
+                        </label>
+                        <input asp-for="PatientName" class="form-control" />
+                        <span asp-validation-for="PatientName" class="text-danger"></span>
+                    </div>
+
+                    <!-- PatientPhoneNo -->
+                    <div class="col-6">
+                        <label asp-for="PatientPhoneNo" class="form-label">মোবাইল নম্বরঃ <span class="required">*</span> (ইংরেজি সংখ্যায়)</label>
+                        <input asp-for="PatientPhoneNo" class="form-control"  inputmode="numeric" />
+                        <span asp-validation-for="PatientPhoneNo" class="text-danger"></span>
+                    </div>
+
+                    <!-- PatientEmail -->
+                    <div class="col-6">
+                        <label asp-for="PatientEmail" class="form-label">
+                            আপনার ইমেইল প্রদান করুন :<span class="required">*</span>
+                        </label>
+                        <input asp-for="PatientEmail" class="form-control" type="email"  />
+                        <span asp-validation-for="PatientEmail" class="text-danger"></span>
+                    </div>
+
+                    <!-- PatientNid -->
+                    <div class="col-12">
+                        <label asp-for="PatientNid" class="form-label">
+                            আপনার জাতীয় পরিচয় পত্র নং :<span class="required">*</span>
+                        </label>
+                        <input asp-for="PatientNid" class="form-control"   />
+                        <span asp-validation-for="PatientNid" class="text-danger"></span>
+                    </div>
+
+                    <!-- Age -->
+                    <div class="col-4">
+                        <label asp-for="PatientAge" class="form-label">বয়সঃ <span class="required">*</span>(ইংরেজি সংখ্যায়)</label>
+                        <input asp-for="PatientAge" class="form-control" />
+                        <span asp-validation-for="PatientAge" class="text-danger"></span>
+                    </div>
+
+                    <!-- Radio button for Gender -->
+                    <div class="col-8">
+                        <label asp-for="PatientGender" class="form-label">
+                            লিঙ্গঃ <span class="required">*</span>
+                        </label>
+                        <br />
+
+                        <div class="form-check form-check-inline">
+                            <input asp-for="PatientGender" class="form-check-input" type="radio" value="Male" />
+                            <label class="form-check-label" for="Male">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="PatientGender" class="form-check-input" type="radio" value="Female" />
+                            <label class="form-check-label" for="Female">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input asp-for="PatientGender" class="form-check-input" type="radio" value="Others" />
+                            <label class="form-check-label" for="Others">Others</label>
+                        </div>
+                        <span asp-validation-for="PatientGender" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-5"></div>
+                    <div class="mb-5"></div>
+
+                    <!-- Button submit -->
+                    <div class="form-group">
+                        <input type="submit" value="Date Exists" class="btn btn-primary btn-success ms-auto d-flex mb-4 rounded-5 p-3" />
+                    </div>
+                </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--Call section-->
+    <section class="call-section p-5">
+      <div class="d-flex align-items-center">
+        <i
+          class="bi bi-telephone-fill border border-success border-3 p-3 d-flex align-items-center"
+        ></i>
+        <p class="h4">
+          যদি আপনার কোন প্রশ্ন থাকে তাহলে আমাদের কল করুন
+          <span class="text-green"><a href="">02-41080541-5</a></span>
+        </p>
+      </div>
+    </section>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
